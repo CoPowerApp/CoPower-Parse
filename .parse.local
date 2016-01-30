@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "CoPower": {
+      "applicationId": "1e7weWiU3snwOoff1Lx9cEiztHxn844QSiW9B03W"
+    },
+    "_default": {
+      "link": "CoPower"
+    }
+  }
+}
