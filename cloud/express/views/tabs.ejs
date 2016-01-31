@@ -1,0 +1,94 @@
+<% include ../include/header.ejs %>
+<% include ../include/sidebar.ejs %> 
+
+  <body>
+
+
+  <!-- BEGIN TAB-DATA TABLE -->
+
+
+      <div class="content-wrapper">
+       <% if(typeof groupName !== 'undefined' && groupName) {%>
+        <h1>
+            <%=groupName%>
+        </h1>
+       <% } else { %>
+       <h1>Your Tabs</h1>
+       <% } %>
+        <div class="row clearfix">
+          <div class="col-md-12 column">
+            <table class="table table-bordered table-hover" id="tab_logic">
+              <thead>
+                <tr>
+                  <th class="text-center">
+                    #
+                  </th>
+                  <th class="text-center">
+                    Title
+                  </th>
+                  <th class="text-center">
+                    URL
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <% if (tabs.length>0) { %>
+                <%   var i = 0 %>
+                <%   tabs.forEach(function(tab) {%>
+                  <tr id='<%='addr'+i %>' name="<%= tab.id %>">
+                    <td>
+                      <%= i+1 %>
+                    </td>
+                    <td>
+                      <input type="text" name='name0' placeholder='Title' class="form-control" value="<%= tab.title %>"/>
+                    </td>
+                    <td>
+                      <input type="text" name='mail0' placeholder='URL' class="form-control" value="<%= tab.url %>"/>
+                    </td>
+                  </tr>
+                <%     i++ %>
+                <%   }) %>
+                  <tr id='<%='addr'+i %>' name="new"></tr>
+                <% } else { %>
+                <tr id='addr0' name="new">
+                  <td>
+                    1
+                  </td>
+                  <td>
+                    <input type="text" name='title' placeholder='Title' class="form-control" />
+                  </td>
+                  <td>
+                    <input type="text" name='url' placeholder='URL' class="form-control"/>
+                  </td>
+                </tr>
+
+
+                <tr id='addr1' name="new"></tr>
+
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <a id="add_row" class="btn btn-default center-block" style="margin-left: 15%; margin-right: 15%; margin-top: 3%; margin-bottom: 3%;">Add Row</a>
+          </div>
+
+          <div class="col-md-3">
+            <a id="save_rows" class="btn btn-primary center-block" style="margin-left: 15%; margin-right: 15%; margin-top: 3%; margin-bottom: 3%;">Save</a>           
+          </div>
+
+          <div class="col-md-3">
+           <a id='delete_row' class="btn btn-default center-block" style="margin-left: 15%; margin-right: 15%; margin-top: 3%; margin-bottom: 3%;">Delete Row</a>  
+          </div>
+        </div>
+
+      </div>
+  <!-- END TAB-DATA TABLE -->
+    </main>
+  </body>
+
+
+<% include ../include/end.ejs %> 
+
